@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class MemoryRepo<T extends Identifiable<U>, U> implements IRepository<T,U>{
 
-    ArrayList<T> MemElements = new ArrayList<T>();
+    protected ArrayList<T> MemElements = new ArrayList<T>();
     @Override
     public void addItem(T item) {
 //        for(T aux: MemElements)

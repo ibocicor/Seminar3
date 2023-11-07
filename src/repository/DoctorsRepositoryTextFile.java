@@ -19,12 +19,10 @@ public class DoctorsRepositoryTextFile extends FileRepository<Doctor, Integer> {
                 if (stringArray.length != 5) {
                     continue;
                 } else {
-                    Doctor doc = new Doctor(Integer.parseInt(stringArray[0].trim()), stringArray[1], stringArray[2], stringArray[3], Double.parseDouble(stringArray[4].trim()));
-                    super.addItem(doc);
+                    Doctor doc = new Doctor(Integer.parseInt(stringArray[0].trim()), stringArray[1].trim(), stringArray[2].trim(), stringArray[3].trim(), Double.parseDouble(stringArray[4].trim()));
+                    this.MemElements.add(doc);
                 }
             }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -34,7 +32,7 @@ public class DoctorsRepositoryTextFile extends FileRepository<Doctor, Integer> {
     protected void writeToFile() {
 
     }
-    DoctorsRepositoryTextFile(String filename) {
+    public DoctorsRepositoryTextFile(String filename) {
         super(filename);
     }
 }
