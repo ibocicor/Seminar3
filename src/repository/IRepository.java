@@ -4,7 +4,7 @@ import src.domain.Identifiable;
 
 import java.util.Collection;
 
-public interface IRepository<T, U > {
+public interface IRepository<T extends Identifiablze<U>, U > {
 
     public void addItem(T item);
 

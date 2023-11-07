@@ -4,7 +4,7 @@ import src.domain.Identifiable;
 
 import java.util.ArrayList;
 
-public class MemoryRepo<T, U> implements IRepository<T,U>{
+public class MemoryRepo<T extends Identifiable<U>, U> implements IRepository<T,U>{
 
     ArrayList<T> MemElements = new ArrayList<T>();
     @Override
