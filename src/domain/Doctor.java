@@ -1,8 +1,9 @@
 package src.domain;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Doctor implements Identifiable<Integer>{
+public class Doctor implements Identifiable<Integer>, Serializable {
     Integer id;
     private String name, specialty, location;
     double grade;
@@ -24,6 +25,14 @@ public class Doctor implements Identifiable<Integer>{
                 ", location='" + location + '\'' +
                 ", grade=" + grade +
                 '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLocation() {
+        return location;
     }
 
     public String getSpecialty() {

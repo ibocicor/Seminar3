@@ -3,10 +3,7 @@ package src.repository;
 import src.domain.Identifiable;
 import src.domain.Doctor;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 
 public class DoctorsRepositoryTextFile extends FileRepository<Doctor, Integer> {
@@ -30,8 +27,20 @@ public class DoctorsRepositoryTextFile extends FileRepository<Doctor, Integer> {
 
     @Override
     protected void writeToFile() {
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+                for (Doctor d: getALlItems())
+                {
+                    writer.write(d.getId() + "," +
+                                        d.getName() + "," +
+                                        d.getSpecialty() + "," +
+                                        d.getLocation() + ", " +
+                                        d.getGrade() + "\n");
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
 
-    }
     public DoctorsRepositoryTextFile(String filename) {
         super(filename);
     }

@@ -2,6 +2,9 @@ package src.repository;
 
 import src.domain.Identifiable;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 public abstract class FileRepository<T extends Identifiable<U>, U> extends MemoryRepo<T,U> {
 
     protected String fileName;
@@ -9,7 +12,6 @@ public abstract class FileRepository<T extends Identifiable<U>, U> extends Memor
     public FileRepository(String fileName) {
         this.fileName = fileName;
         readFromFile();
-
     }
 
     protected abstract void readFromFile();
@@ -27,5 +29,4 @@ public abstract class FileRepository<T extends Identifiable<U>, U> extends Memor
         writeToFile();
         return result;
     }
-
 }

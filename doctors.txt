@@ -1,3 +1,4 @@
-1, John smith, cardioligy, cluj , 9
-2, Mary smith, dermitology, constanta , 10
-3 , gigel , yes, astrology, slobozia, 3.50
+1,John smith,cardioligy,cluj, 9.0
+2,Mary smith,dermitology,constanta, 10.0
+3,Edward,dentist,Iasi, 8.0
+5,Doc5,Specialty5,Location5, 5.0
