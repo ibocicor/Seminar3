@@ -9,6 +9,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
+
 public class DoctorsRepositoryBinaryFile extends FileRepository<Doctor, Integer> {
     public DoctorsRepositoryBinaryFile(String fileName) {
         super(fileName);
@@ -19,9 +20,7 @@ public class DoctorsRepositoryBinaryFile extends FileRepository<Doctor, Integer>
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName)))
         {
             this.MemElements = (ArrayList<Doctor>) ois.readObject();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
